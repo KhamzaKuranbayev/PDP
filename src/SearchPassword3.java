@@ -1,21 +1,40 @@
+import javax.jws.soap.SOAPBinding;
+import java.util.Arrays;
 import java.util.Random;
 
 public class SearchPassword3 {
     public static void main(String[] args) {
-
         System.out.print("Parol: ");
-        String password = getRandomPassword();
+        String password = "B850";
         System.out.println(password);
 
-        String new_password[][][][] = new String[36][36][36][36];
+        String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        boolean isFound = false;
+        int count = 0;
+        for (int i = 0; i < 36; i++) {
+            for (int j = 0; j < 36; j++) {
+                for (int k = 0; k < 36; k++) {
+                    for (int l = 0; l < 36; l++) {
+                        String result = str.charAt(i) + "" + str.charAt(j) + "" + str.charAt(k) + "" + str.charAt(l);
+                        if (isNumberLetter(result)) {
+                            if (result.equals(password)) {
+                                isFound = true;
+                                count++;
+                                System.out.println("Parol: " + result + "; " + count + " ta urinishda topildi!");
+                            }
+                        }
+                        count++;
+                    }
+                    if (isFound)
+                        break;
+                }
+                if (isFound)
+                    break;
 
-        for(int i = 0; i < 36; i++) {
-            
+            }
+            if (isFound)
+                break;
         }
-
-
-
-
     }
 
     public static String getRandomPassword() {
