@@ -5,9 +5,10 @@ import java.util.Random;
 public class SearchPassword3 {
     public static void main(String[] args) {
         System.out.print("Parol: ");
-        String password = "B850";
+        String password = getRandomPassword();
         System.out.println(password);
 
+        // 0 0 0 0
         String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         boolean isFound = false;
         int count = 0;

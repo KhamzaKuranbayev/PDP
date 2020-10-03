@@ -4,7 +4,7 @@ public class SearchPassword2 {
     public static void main(String[] args) {
         // 3FAN
         System.out.print("Parol: ");
-        String password = "B850";
+        String password = getRandomPassword();
         System.out.println(password);
 
         int count = 0;

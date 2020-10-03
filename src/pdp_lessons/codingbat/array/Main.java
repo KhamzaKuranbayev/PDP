@@ -6,16 +6,56 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int[] nums = {1, 2, 1, 3, 4};
-        System.out.println(isEverywhere(nums, 2));
+        int[] nums = {1, 2, 3, 8, 9, 3, 2, 1};
+        System.out.println(maxMirror(nums));
+    }
+
+    public static int maxMirror(int[] nums) {
+        int maxLength = 0;
+        int count;
+        for (int i = 0; i < nums.length; i++) {
+            count = 0;
+            for (int j = nums.length - 1; j >= 0 && i + count < nums.length; j--) {
+                if (nums[i + count] == nums[j]) {
+                    count++;
+                } else {
+                    if (count > 0) {
+                        maxLength = Math.max(count, maxLength);
+                        count = 0;
+                    }
+                }
+            }
+            maxLength = Math.max(count, maxLength);
+        }
+        return maxLength;
+    }
+
+
+    public static int maxSpan(int[] nums) {
+        int maxLength = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int a = nums.length;
+            for (int j = nums.length - 1; j >= 0; j--) {
+                if (nums[i] != nums[j]) {
+                    a--;
+                } else {
+                    break;
+                }
+            }
+            int span = a - i;
+
+            if (span > maxLength)
+                maxLength = span;
+        }
+        return maxLength;
     }
 
     public static boolean modThree(int[] nums) {
-        if(nums.length < 3)
+        if (nums.length < 3)
             return false;
 
-        for(int i = 0; i <= nums.length - 3; i++) {
-            if(nums[i] % 2 == nums[i+1] % 2 && nums[i] % 2 == nums[i+2] % 2)
+        for (int i = 0; i <= nums.length - 3; i++) {
+            if (nums[i] % 2 == nums[i + 1] % 2 && nums[i] % 2 == nums[i + 2] % 2)
                 return true;
         }
 
@@ -139,9 +179,6 @@ public class Main {
         int index = 0;
         int[] square = new int[n * n];
         for (int i = 0; i < n * n; i++) {
-            for (int j = i; j < n - 1; j++) {
-                square[index++] = 0;
-            }
             for (int k = i + 1; k > 0; k--) {
                 square[index] = k;
                 if (index < (n * n - 1)) {
@@ -251,24 +288,6 @@ public class Main {
             i++;
         }
         return nums;
-    }
-
-    public static int maxSpan(int[] nums) {
-        int max = 0;
-
-        for (int i = 0; i < nums.length; i++) {
-            int j = nums.length - 1;
-
-            while (nums[i] != nums[j])
-                j--;
-
-            int span = j - i + 1;
-
-            if (span > max)
-                max = span;
-        }
-
-        return max;
     }
 
     public static boolean tripleUp(int[] nums) {
