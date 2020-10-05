@@ -1,3 +1,5 @@
+package pdp_lessons.hackpassword;
+
 import java.util.Random;
 import java.util.Scanner;
 

@@ -1,40 +1,23 @@
-import javax.jws.soap.SOAPBinding;
-import java.util.Arrays;
+package pdp_lessons.hackpassword;
+
 import java.util.Random;
 
-public class SearchPassword3 {
+public class SearchPassword2 {
     public static void main(String[] args) {
+        // 3FAN
         System.out.print("Parol: ");
         String password = getRandomPassword();
         System.out.println(password);
 
-        // 0 0 0 0
-        String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        boolean isFound = false;
         int count = 0;
-        for (int i = 0; i < 36; i++) {
-            for (int j = 0; j < 36; j++) {
-                for (int k = 0; k < 36; k++) {
-                    for (int l = 0; l < 36; l++) {
-                        String result = str.charAt(i) + "" + str.charAt(j) + "" + str.charAt(k) + "" + str.charAt(l);
-                        if (isNumberLetter(result)) {
-                            if (result.equals(password)) {
-                                isFound = true;
-                                count++;
-                                System.out.println("Parol: " + result + "; " + count + " ta urinishda topildi!");
-                            }
-                        }
-                        count++;
-                    }
-                    if (isFound)
-                        break;
-                }
-                if (isFound)
-                    break;
-
-            }
-            if (isFound)
+        while (true) {
+            String new_password = getRandomPassword();
+            if (new_password.equals(password)) {
+                count++;
+                System.out.println("Parol: " + new_password + "; " + count + " ta urinishda topildi!");
                 break;
+            }
+            count++;
         }
     }
 

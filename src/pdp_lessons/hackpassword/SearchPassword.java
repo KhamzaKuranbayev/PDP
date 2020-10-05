@@ -1,4 +1,4 @@
-package pdp_lessons;
+package pdp_lessons.hackpassword;
 import java.util.Random;
 
 public class SearchPassword {
