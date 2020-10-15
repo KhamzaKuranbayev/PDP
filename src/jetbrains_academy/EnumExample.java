@@ -1,3 +1,5 @@
+package jetbrains_academy;
+
 public class EnumExample {
     public static void main(String[] args) {
         DangerLevel high = DangerLevel.HIGH;

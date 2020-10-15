@@ -1,3 +1,5 @@
+package jetbrains_academy;
+
 public class A {
     private int x;
 

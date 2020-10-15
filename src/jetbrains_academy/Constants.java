@@ -1,3 +1,5 @@
+package jetbrains_academy;
+
 public class Constants {
     public static void main(String[] args) {
         System.out.println(ConstantsAndUtilities.A_CONSTANT_TTT);

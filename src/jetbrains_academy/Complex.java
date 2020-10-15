@@ -1,3 +1,5 @@
+package jetbrains_academy;
+
 public class Complex {
     double real;
     double image;

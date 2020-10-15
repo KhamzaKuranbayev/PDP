@@ -1,3 +1,5 @@
+package jetbrains_academy;
+
 public class DerivedClass extends BaseClass {
     private int b = 10;
 

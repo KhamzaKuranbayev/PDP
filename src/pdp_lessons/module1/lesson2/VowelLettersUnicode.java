@@ -2,7 +2,7 @@ package pdp_lessons.module1.lesson2;
 
 public class VowelLettersUnicode {
     public static void main(String[] args) {
-        int A = (int) 'A';
+        int A = (int) 'jetbrains_academy.A';
         int a = (int) 'a';
 
         int E = (int) 'E';
@@ -16,7 +16,7 @@ public class VowelLettersUnicode {
 
         int U = (int) 'U';
         int u = (int) 'u';
-        System.out.printf("A unicode: U+%04x%na unicode: U+%04x%n" +
+        System.out.printf("jetbrains_academy.A unicode: U+%04x%na unicode: U+%04x%n" +
                 "\nE unicode: U+%04x%ne unicode: U+%04x%n" +
                 "\nI unicode: U+%04x%ni unicode: U+%04x%n" +
                 "\nO unicode: U+%04x%no unicode: U+%04x%n" +

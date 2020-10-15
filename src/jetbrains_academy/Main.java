@@ -1,3 +1,4 @@
+package jetbrains_academy;
 
 import java.math.BigInteger;
 import java.util.*;
@@ -5,7 +6,7 @@ import java.util.*;
 public class Main {
     public static void main(String args[]) {
 
-        //        DerivedClass derivedClass = new DerivedClass();
+        //        jetbrains_academy.DerivedClass derivedClass = new jetbrains_academy.DerivedClass();
 //        System.out.println(derivedClass.sum());
 
 //        int number = 12241;
