@@ -1,4 +1,4 @@
-package pdp_lessons;
+package pdp_lessons.module1.extraTask;
 
 import java.util.Arrays;
 
