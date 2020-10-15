@@ -1,4 +1,4 @@
-package pdp_lessons.codingbat;
+package pdp_lessons.codingbat.modul1.other;
 
 import com.sun.deploy.util.StringUtils;
 

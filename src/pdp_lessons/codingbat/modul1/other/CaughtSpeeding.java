@@ -1,4 +1,4 @@
-package pdp_lessons.codingbat;
+package pdp_lessons.codingbat.modul1.other;
 
 public class CaughtSpeeding {
     public int caughtSpeeding(int speed, boolean isBirthday) {

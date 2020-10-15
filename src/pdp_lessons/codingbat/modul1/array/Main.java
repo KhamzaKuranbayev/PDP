@@ -1,4 +1,4 @@
-package pdp_lessons.codingbat.array;
+package pdp_lessons.codingbat.modul1.array;
 
 import java.util.Arrays;
 

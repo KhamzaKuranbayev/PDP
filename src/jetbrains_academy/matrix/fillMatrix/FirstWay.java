@@ -1,19 +1,17 @@
-package matrix.fillMatrix;
+package jetbrains_academy.matrix.fillMatrix;
 
 import java.util.Scanner;
 
-public class SecondWay {
+public class FirstWay {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
 
         int[][] matrix = new int[n][n];
 
-        int index = 0;
         for (int i = 0; i < n; i++) {
-            int fillNumber = index;
-            for (int j = 0; j < matrix[i].length; j++) {
-
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = Math.abs(j - i);
             }
         }
 

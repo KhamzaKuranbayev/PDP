@@ -1,4 +1,4 @@
-package matrix;
+package jetbrains_academy.matrix;
 
 import java.util.Scanner;
 

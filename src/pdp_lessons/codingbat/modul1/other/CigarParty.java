@@ -1,4 +1,4 @@
-package pdp_lessons.codingbat;
+package pdp_lessons.codingbat.modul1.other;
 
 public class CigarParty {
     public boolean cigarParty(int cigars, boolean isWeekend) {

@@ -1,4 +1,4 @@
-package pdp_lessons.hackpassword;
+package pdp_lessons.module1.extraTask.hackpassword;
 
 import java.util.Random;
 
