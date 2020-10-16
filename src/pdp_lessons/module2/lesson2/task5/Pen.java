@@ -37,10 +37,10 @@ public class Pen {
     public void write(String word) {
         if (button) {
             if (inq > 0) {
-                System.out.println(word);
 
-                // My code start
+                // my code start here
                 word = word.trim();
+                StringBuilder written_word = new StringBuilder();
                 for (int i = 0; i < word.length(); i++) {
                     char c = word.charAt(i);
                     if (inq != 0) {
@@ -49,8 +49,10 @@ public class Pen {
                         } else if (c != ' ') {
                             inq -= inqConsumption;
                         }
+                        written_word.append(c);
                     }
                 }
+                System.out.println(written_word);
                 // end
 
                 // inq -= word.length() * inqConsumption; // yozilgan harflar uchun siyohni sarflanishi

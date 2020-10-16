@@ -21,20 +21,22 @@ public class Main {
             System.out.print("To'lov qilmoqchi bo'lgan Invoice no'merini kiriting: ");
             String invoiceNumber = scanner.nextLine();
 
-            if (invoice1.getInvoiceNumber().equals(invoiceNumber)) {
-                initData(invoice1, scanner, fullName);
-            } else if (invoice2.getInvoiceNumber().equals(invoiceNumber)) {
-                initData(invoice2, scanner, fullName);
-            } else if (invoice3.getInvoiceNumber().equals(invoiceNumber)) {
-                initData(invoice3, scanner, fullName);
-            } else if (invoice4.getInvoiceNumber().equals(invoiceNumber)) {
-                initData(invoice4, scanner, fullName);
-            } else if (invoice5.getInvoiceNumber().equals(invoiceNumber)) {
-                initData(invoice5, scanner, fullName);
-            } else {
-                System.out.println("Kechirasiz bunday invioce bazadan topilmadi!\n\n");
+            switch (invoiceNumber) {
+                case "742-0001":
+                    initData(invoice1, scanner, fullName);
+                    break;
+                case "742-0002":
+                    initData(invoice2, scanner, fullName);
+                    break;
+                case "742-0003":
+                    initData(invoice3, scanner, fullName);
+                    break;
+                case "742-0005":
+                    initData(invoice5, scanner, fullName);
+                    break;
+                default:
+                    System.out.println("Kechirasiz bunday invioce bazadan topilmadi!\n\n");
             }
-
         }
     }
 

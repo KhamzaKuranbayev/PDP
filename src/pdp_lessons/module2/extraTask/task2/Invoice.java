@@ -2,7 +2,7 @@ package pdp_lessons.module2.extraTask.task2;
 
 public class Invoice {
 
-    private String invoiceNumber;
+    private final String invoiceNumber;
     private int cost;
     private boolean status;
     private String paidBy;
@@ -15,10 +15,6 @@ public class Invoice {
 
     public String getInvoiceNumber() {
         return invoiceNumber;
-    }
-
-    public void setInvoiceNumber(String invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
     }
 
     public int getCost() {
@@ -37,6 +33,10 @@ public class Invoice {
         this.paidBy = paidBy;
     }
 
+    public String getPaidBy() {
+        return paidBy;
+    }
+
     public boolean pay(int cost) {
         if (getCost() >= cost) {
             setCost(getCost() - cost);
@@ -52,10 +52,9 @@ public class Invoice {
         return "to'lanmagan";
     }
 
-
     @Override
     public String toString() {
         return "\nInvoice no'meri = '" + invoiceNumber + "', To'lov holati: "
-                + isPay(status) + ". Siz " + getCost() + "$ to'lashingiz kerak.";
+                + isPay(status) + ", To'lovchi: " + getPaidBy() + ". Siz " + getCost() + "$ to'lashingiz kerak.";
     }
 }

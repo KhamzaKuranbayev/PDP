@@ -2,7 +2,7 @@ package pdp_lessons.module1.lesson2;
 
 public class VowelLettersUnicode {
     public static void main(String[] args) {
-        int A = (int) 'jetbrains_academy.A';
+        int A = (int) 'A';
         int a = (int) 'a';
 
         int E = (int) 'E';

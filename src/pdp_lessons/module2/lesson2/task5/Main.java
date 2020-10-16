@@ -3,12 +3,12 @@ package pdp_lessons.module2.lesson2.task5;
 public class Main {
     public static void main(String[] args) {
 
-        Pen ruchka = new Pen(100,"Ko'k",10);
+        Pen ruchka = new Pen(200,"Ko'k",10);
         ruchka.clickButton();
         System.out.println(ruchka.getInq());
         ruchka.write("Hello OOP!");
         System.out.println(ruchka.getInq());
-        ruchka.write("Hi");
+        ruchka.write("Hi HUTU");
 
         System.out.println("======= pen objecti=========");
         Pen pen=new Pen();
