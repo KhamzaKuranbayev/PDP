@@ -34,10 +34,10 @@ public class Main {
                     }
                     break;
                 case 2:
-                    if (index != 0 && remove_index < index) {
+                    if (index != 0 && !isEmptyObject(contacts)) {
                         System.out.println("Kontakt ro'yhati:");
                         for (int i = 0; i < index; i++) {
-                            if (!contacts[i].toString().equals("")) {
+                            if (contacts[i] != null) {
                                 System.out.println(contacts[i].toString());
                             }
                         }
@@ -70,15 +70,17 @@ public class Main {
                     }
                     break;
                 case 3:
-                    if (index != 0 && remove_index < index) {
+                    if (index != 0 && !isEmptyObject(contacts)) {
                         System.out.println("Kontakt ro'yhati:");
                         for (int i = 0; i < index; i++) {
-                            System.out.println(contacts[i].toString());
+                            if (contacts[i] != null) {
+                                System.out.println(contacts[i].toString());
+                            }
                         }
                         System.out.print("\nIltimos kontaktni tanlang: ");
                         id = scanner.nextInt();
 
-                        contacts[id - 1].removeContact();
+                        contacts[id - 1] = null;
                         System.out.println("Kontakt o'chirildi!\n");
                         remove_index++;
                     } else {
@@ -91,4 +93,14 @@ public class Main {
             }
         }
     }
+
+    public static boolean isEmptyObject(Contact[] contacts) {
+        int count = 0;
+        for (Contact contact : contacts) {
+            if (contact == null)
+                count++;
+        }
+        return count == contacts.length;
+    }
+
 }

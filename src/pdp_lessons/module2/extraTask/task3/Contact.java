@@ -36,23 +36,12 @@ public class Contact {
         this.mail = mail;
     }
 
-    public void removeContact() {
-        this.id = 0;
-        this.phone_number = "";
-        this.name = "";
-        this.address = "";
-        this.mail = "";
-    }
-
     @Override
     public String toString() {
-        if (id != 0 && !phone_number.isEmpty() && !name.isEmpty() && !address.isEmpty() && !mail.isEmpty()) {
-            return "Id: " + id +
-                    ", Telefon: " + phone_number +
-                    ", Ismi: " + name +
-                    ", Manzili: " + address +
-                    ", Mail: " + mail;
-        }
-        return "";
+        return "Id: " + id +
+                ", Telefon: " + phone_number +
+                ", Ismi: " + name +
+                ", Manzili: " + address +
+                ", Mail: " + mail;
     }
 }
