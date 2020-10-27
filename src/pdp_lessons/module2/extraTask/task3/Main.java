@@ -7,7 +7,6 @@ public class Main {
 
         Contact[] contacts = new Contact[10];
         int index = 0;
-        int remove_index = 0;
         int id;
 
         while (true) {
@@ -82,7 +81,6 @@ public class Main {
 
                         contacts[id - 1] = null;
                         System.out.println("Kontakt o'chirildi!\n");
-                        remove_index++;
                     } else {
                         System.out.println("Kontakt bo'sh!\n");
                     }
@@ -93,6 +91,13 @@ public class Main {
             }
         }
     }
+
+    // 97989798
+    // 8789787
+    // null
+    // 5646564
+
+
 
     public static boolean isEmptyObject(Contact[] contacts) {
         int count = 0;

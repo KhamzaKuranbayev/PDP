@@ -2,6 +2,7 @@ package pdp_lessons.module2.extraTask.task3;
 
 public class Contact {
 
+    // instance variables
     private int id;
     private String phone_number;
     private String name;
