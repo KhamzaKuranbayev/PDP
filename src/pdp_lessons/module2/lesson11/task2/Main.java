@@ -16,14 +16,9 @@ public class Main {
         linkedHashSet.forEach(integer -> System.out.print(integer + " "));
 
         // 3)	Qiymati 400 dan katta bo’lgan elementlarini o’chiring.
-        TreeSet<Integer> treeSet = new TreeSet<>(linkedHashSet);
-        System.out.println("\n\nSort qilingandan so'ng: ");
-        treeSet.forEach(integer -> System.out.print(integer + " "));
+        linkedHashSet.removeIf(integer -> integer > 400);
 
-        TreeSet<Integer> treeSet1 = new TreeSet<>(treeSet.tailSet(400, true));
-
-        treeSet.removeAll(treeSet1);
         System.out.println("\n\n400 dan katta sonlar o'chirildi: ");
-        treeSet.forEach(integer -> System.out.print(integer + " "));
+        linkedHashSet.forEach(integer -> System.out.print(integer + " "));
     }
 }
