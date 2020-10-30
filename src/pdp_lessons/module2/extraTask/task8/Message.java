@@ -1,3 +1,5 @@
+package pdp_lessons.module2.extraTask.task8;
+
 public class Message {
     private String title;
     private String body;

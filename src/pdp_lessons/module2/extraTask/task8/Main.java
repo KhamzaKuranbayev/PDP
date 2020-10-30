@@ -1,3 +1,5 @@
+package pdp_lessons.module2.extraTask.task8;
+
 import java.util.Scanner;
 
 public class Main {

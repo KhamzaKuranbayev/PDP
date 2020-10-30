@@ -7,8 +7,15 @@ import java.util.Scanner;
 public class QuestionDemo {
     static Scanner scanner = new Scanner(System.in);
     static int choice;
+    static User onlineUser = null;
+    static int indexResult = 0;
 
     public static void main(String[] args) {
+
+        User[] users = new User[3];
+        users[0] = new User("Khamza Kuranbayev", "khamza@mail.ru", "asd123", "user");
+        users[1] = new User("Aziz Ahmedov", "aziz@mail.ru", "qwe123", "user");
+        users[2] = new User("Mirakbar Tolipov", "mirtolip@mail.ru", "admin123", "admin");
 
         // Subject lar ro'yhati
         List<Subject> subjects = new ArrayList<>();
@@ -99,58 +106,97 @@ public class QuestionDemo {
         subject2.setName("Dasturlash");
         subject2.setQuestions(questionList2);
 
-
         subjects.add(subject1);
         subjects.add(subject2);
 
+        Result[] results = new Result[20];
+
         while (true) {
-            System.out.println("1. Test topshirish");
-            System.out.println("2. Natijalarni ko'rish");
-            System.out.println("3. Chiqish");
+            System.out.println("1. Login");
+            System.out.println("2. Sign In");
+            System.out.println("3. Exit");
             choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
-                    boolean b = true;
-                    while (b) {
-                        printMenu(subjects);
-                        choice = scanner.nextInt();
+                    System.out.print("\nEmail: ");
+                    String email = scanner.next();
+                    System.out.print("Password: ");
+                    String password = scanner.next();
 
-                        switch (choice) {
-                            case 1:
-                                viewQuestionList(subject1, questionList1);
-                                choice = scanner.nextInt();
-                                quizProcess(questionList1, subject1);
-                                break;
-                            case 2:
-                                viewQuestionList(subject2, questionList2);
-                                choice = scanner.nextInt();
-                                quizProcess(questionList2, subject2);
-                                break;
-                            case 0:
-                                b = false;
-                                break;
+                    if (checkLogin(users, email, password)) {
+                        boolean bool = true;
+                        while (bool) {
+                            System.out.println("1. Test topshirish");
+                            System.out.println("2. Natijalarni ko'rish");
+                            System.out.println("3. Chiqish");
+                            choice = scanner.nextInt();
+
+                            switch (choice) {
+                                case 1:
+                                    boolean b = true;
+                                    while (b) {
+                                        printMenu(subjects);
+                                        choice = scanner.nextInt();
+
+                                        switch (choice) {
+                                            case 1:
+                                                viewQuestionList(subject1, questionList1);
+                                                choice = scanner.nextInt();
+                                                quizProcess(questionList1, subject1, results);
+                                                break;
+                                            case 2:
+                                                viewQuestionList(subject2, questionList2);
+                                                choice = scanner.nextInt();
+                                                quizProcess(questionList2, subject2, results);
+                                                break;
+                                            case 0:
+                                                b = false;
+                                                break;
+                                        }
+                                    }
+                                    break;
+                                case 2:
+                                    System.out.println("\nHurmatli, " + onlineUser.getName() + " qaysi fanning natijalarini ko'rmoqchisiz?");
+                                    System.out.println("-----------------------------------");
+                                    getSubjects(subjects);
+                                    System.out.println("-----------------------------------");
+                                    choice = scanner.nextInt();
+                                    Subject subject = subjects.get(choice - 1);
+                                    System.out.println();
+                                    for (Result result : results) {
+                                        if (result != null) {
+                                            if (result.getUser().equals(onlineUser) && result.getSubject().equals(subject)) {
+                                                printResult(result.getSubject().getQuestions(), subject);
+                                            }
+                                        }
+                                    }
+                                    break;
+                                case 3:
+                                    bool = false;
+                                    break;
+                            }
                         }
-                    }
-                    break;
-                case 2:
-                    System.out.println("\nBarcha fanlar bo'yicha natijalar: ");
-                    System.out.println("-----------------------------------");
-                    for (Subject subject : subjects) {
-                        printResult(subject.getQuestions(), subject);
-                        System.out.println("-----------------------------------");
                     }
                     break;
                 case 3:
                     System.exit(0);
             }
-
         }
-
-
     }
 
-    private static void quizProcess(List<Question> questionList, Subject subject) {
+    private static boolean checkLogin(User[] users, String email, String password) {
+        for (User user : users) {
+            if (user != null && user.login(email, password)) {
+                onlineUser = user;
+                System.out.println("\nXurmatli " + user.getName() + " online test tizimiga xush kelibsiz!");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static void quizProcess(List<Question> questionList, Subject subject, Result[] results) {
         if (choice == 1) {
             System.out.println("\n" + subject.getName() + " dan test jarayoni boshlandi... ");
             System.out.println("-----------------------------------");
@@ -178,21 +224,22 @@ public class QuestionDemo {
                     score++;
             }
             subject.setScore(score);
+            results[indexResult++] = new Result(onlineUser, subject);
             printResult(questionList, subject);
-            System.out.println("");
         }
     }
 
     public static void printResult(List<Question> questionList, Subject subject) {
         int result = (100 * subject.getScore()) / questionList.size();
-
-        System.out.println(subject.getName() + "dan test natijalari: " + questionList.size() + " tadan " + subject.getScore() + "ta; " + result + " %");
-        System.out.print("\nTo'g'ri javoblar:      ");
+        System.out.println("Xurmatli " + onlineUser.getName() + " sizning " + subject.getName() + "dan test natijangiz: ");
+        System.out.println("-----------------------------------");
+        System.out.println(questionList.size() + " tadan " + subject.getScore() + "ta; " + result + " %");
+        System.out.print("To'g'ri javoblar:      ");
         questionList.forEach(question -> System.out.print(question.getRightAnswer().substring(0, question.getRightAnswer().indexOf('.')) + " "));
         System.out.println();
         System.out.print("Sizning javoblaringiz: ");
         questionList.forEach(question -> System.out.print(question.getUserAnswer() + " "));
-        System.out.println("\n-----------------------------------");
+        System.out.println("\n-----------------------------------\n");
     }
 
     public static void viewQuestionList(Subject subject, List<Question> questions) {

@@ -1,6 +1,7 @@
 package pdp_lessons.module2.lesson10.task1;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -13,5 +14,6 @@ public class Main {
 
         List<Circle> circles2 = new ArrayList<>(circles1);
         System.out.println(circles2.get(1).getRadius());
+
     }
 }
