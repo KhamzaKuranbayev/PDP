@@ -63,6 +63,7 @@ public class Main {
             System.out.println(fruit.toString() + ", Narxi: " + cost + " (Oldingi Narxi: " + oldCost + ")");
         });
 
+
         // 4.	Narxi 10000 so’mdan qimmat mevalarning narxini 20% ga arzonlashtiring
         System.out.println("\n\nNarxi 10 000 so’mdan qimmat mevalarning narxi 20% ga arzonlashtirildi:");
         System.out.println("---------------------------------------------------------------------------");
