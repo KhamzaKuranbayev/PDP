@@ -1,21 +1,15 @@
 package pdp_lessons.module2.extraTask.task11;
 
-import pdp_lessons.module2.extraTask.task7.Order;
-
 public class OrderDetails {
 
     private Order order;
     private Product product;
     private int quantity;
-    private double cost;
-    private double subtotal;
 
-    public OrderDetails(Order order, Product product, int quantity, double cost, double subtotal) {
+    public OrderDetails(Order order, Product product, int quantity) {
         this.order = order;
         this.product = product;
         this.quantity = quantity;
-        this.cost = cost;
-        this.subtotal = subtotal;
     }
 
     public Order getOrder() {
@@ -42,19 +36,4 @@ public class OrderDetails {
         this.quantity = quantity;
     }
 
-    public double getCost() {
-        return cost;
-    }
-
-    public void setCost(double cost) {
-        this.cost = cost;
-    }
-
-    public double getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(double subtotal) {
-        this.subtotal = subtotal;
-    }
 }
