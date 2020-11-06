@@ -1,6 +1,7 @@
 package pdp_lessons.module3.lesson3.task11;
 
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
@@ -9,27 +10,27 @@ public class TrafficDemo {
         LocalTime localTime = LocalTime.now();
 
         long count = 0;
-        while (count <= 10) {
+        while (count <= 1) {
 
             // RED
             {
                 System.out.println(TrafficLight.RED.getAction());
-                waiting(30);
+                waiting(5);
             }
 
             // YELLOW
             {
                 System.out.println(TrafficLight.YELLOW.getAction());
-                waiting(10);
+                waiting(3);
             }
 
             // GREEN
             {
                 System.out.println(TrafficLight.GREEN.getAction() + "\n");
-                waiting(20);
+                waiting(5);
             }
 
-            count = ChronoUnit.MINUTES.between(LocalTime.now(), localTime);
+            count = ChronoUnit.MINUTES.between(localTime, LocalTime.now());
         }
     }
 

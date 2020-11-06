@@ -53,17 +53,26 @@ public class TransferMoneyDemo {
                             checkCardType(ownerCard, receiver);
 
                             System.out.println("Qabul qiluvchi:  " + receiver.getOwner() + " | Karta: " + receiver.getCardType());
-                            System.out.print("\nQancha pul o'tkazmoqchisiz: ");
-                            double amount = scanner.nextDouble();
 
-                            checkBalance(amount, ownerCard);
-                            doTransfer(ownerCard, receiver, amount);
+                            boolean b1 = true;
+                            while (b1) {
+                                System.out.print("\nQancha pul o'tkazmoqchisiz: ");
+                                double amount = scanner.nextDouble();
+                                try {
+                                    checkBalance(amount, ownerCard);
+                                    doTransfer(ownerCard, receiver, amount);
 
-                            System.out.println("\n" + receiver.getOwner() + " ga " + amount + " "
-                                    + ownerCard.getCardType().getUnit() + " o'tkazildi!\n");
-                            b = false;
-                        } catch (CardTypeNotMatch | NotEnoughMoney exception) {
-                            System.out.println(exception.getMessage());
+                                    System.out.println("\n" + receiver.getOwner() + " ga " + amount + " "
+                                            + ownerCard.getCardType().getUnit() + " o'tkazildi!\n");
+                                    b = false;
+                                    b1 = false;
+                                } catch (NotEnoughMoney exception) {
+                                    System.out.println(exception.getMessage());
+                                }
+
+                            }
+                        } catch (CardTypeNotMatch ex) {
+                            System.out.println(ex.getMessage());
                         }
 
                     } else {

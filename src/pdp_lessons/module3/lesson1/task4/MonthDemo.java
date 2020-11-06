@@ -3,7 +3,7 @@ package pdp_lessons.module3.lesson1.task4;
 public class MonthDemo {
     public static void main(String[] args) {
 
-        Months month = Months.March;
+        Months month = Months.December;
 
         switch (month) {
             case March:
